@@ -60,18 +60,18 @@ for de in delta:
         if de[4] == ">":
             if de[1] == "#":
                 for e in gamma:
-                    rules.append((["[" + de[0] + ", #, " + e + ", " + a + "]"],  # 2.1
+                    rules.append((["[" + de[0] + ", #, " + e + ", " + a + "]"],
                                   ["[#, " + de[2] + ", " + e + ", " + a + "]"]))
             else:
                 for z in gamma:
                     for b in sigma:
-                        rules.append((["[#, " + de[0] + ", " + de[1] + ", " + a + "]", "[" + z + ", " + b + "]"],  # 2.3
+                        rules.append((["[#, " + de[0] + ", " + de[1] + ", " + a + "]", "[" + z + ", " + b + "]"],
                                       ["[#, " + de[3] + ", " + a + "]", "[" + de[2] + ", " + z + ", " + b + "]"]))
                         rules.append(
-                            (["[#, " + de[0] + ", " + de[1] + ", " + a + "]", "[" + z + ", " + b + ", #]"],  # 2.3
+                            (["[#, " + de[0] + ", " + de[1] + ", " + a + "]", "[" + z + ", " + b + ", #]"],
                              ["[#, " + de[3] + ", " + a + "]", "[" + de[2] + ", " + z + ", " + b + ", #]"]))
         else:
-            rules.append((["[#, " + de[0] + ", " + de[1] + ", " + a + "]"],  # 2.2
+            rules.append((["[#, " + de[0] + ", " + de[1] + ", " + a + "]"],
                           ["[" + de[2] + ", #, " + de[3] + ", " + a + "]"]))
 # 6
 for de in delta:
@@ -79,31 +79,31 @@ for de in delta:
         for b in sigma:
             if de[4] == ">":
                 for z in gamma:
-                    rules.append((["[" + de[0] + ", " + de[1] + ", " + a + "]", "[" + z + ", " + b + "]"],  # 2.3
+                    rules.append((["[" + de[0] + ", " + de[1] + ", " + a + "]", "[" + z + ", " + b + "]"],
                                   ["[" + de[3] + ", " + a + "]", "[" + de[2] + ", " + z + ", " + b + "]"]))
-                    rules.append((["[" + de[0] + ", " + de[1] + ", " + a + "]", "[" + z + ", " + b + ", #]"],  # 2.3
+                    rules.append((["[" + de[0] + ", " + de[1] + ", " + a + "]", "[" + z + ", " + b + ", #]"],
                                   ["[" + de[3] + ", " + a + "]", "[" + de[2] + ", " + z + ", " + b + ", #]"]))
             else:
                 for z in gamma:
-                    rules.append((["[" + z + ", " + b + "]", "[" + de[0] + ", " + de[1] + ", " + a + "]"],  # 2.2
+                    rules.append((["[" + z + ", " + b + "]", "[" + de[0] + ", " + de[1] + ", " + a + "]"],
                                   ["[" + de[2] + ", " + z + ", " + b + "]", "[" + de[3] + ", " + a + "]"]))
-                    rules.append((["[#, " + z + ", " + b + "]", "[" + de[0] + ", " + de[1] + ", " + a + "]"],  # 2.2
+                    rules.append((["[#, " + z + ", " + b + "]", "[" + de[0] + ", " + de[1] + ", " + a + "]"],
                                   ["[#, " + de[2] + ", " + z + ", " + b + "]", "[" + de[3] + ", " + a + "]"]))
 # 7
 for de in delta:
     for a in sigma:
         if de[4] == ">":
-            rules.append((["[" + de[0] + ", " + de[1] + ", " + a + ", #]"],  # 2.3
+            rules.append((["[" + de[0] + ", " + de[1] + ", " + a + ", #]"],
                           ["[" + de[3] + ", " + a + ", " + de[2] + ", #]"]))
         else:
             if de[1] == "#":
                 for e in gamma:
-                    rules.append((["[" + e + ", " + a + ", " + de[0] + ", #]"],  # 2.4
+                    rules.append((["[" + e + ", " + a + ", " + de[0] + ", #]"],
                                   ["[" + de[2] + ", " + e + ", " + a + ", #]"]))
             else:
                 for z in gamma:
                     for b in sigma:
-                        rules.append((["[" + z + ", " + b + "]", "[" + de[0] + ", " + de[1] + ", " + a + ", #]"],  # 2.2
+                        rules.append((["[" + z + ", " + b + "]", "[" + de[0] + ", " + de[1] + ", " + a + ", #]"],
                                       ["[" + de[2] + ", " + z + ", " + b + "]", "[" + de[3] + ", " + a + ", #]"]))
 # 8
 for a in sigma:

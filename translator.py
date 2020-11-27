@@ -143,12 +143,7 @@ while stage2:
                         newWord.insert(i, rule[1][len(rule[1]) - j - 1])
                 stage2.append(newWord)
 
-out = open("grammar.txt", "w")
-lineList = [line.rstrip('\n') for line in open(bufferFile, "r")]
-out.write(lineList[0] + "\n")
-for ix, rule in enumerate(lineList):
-    if ix - 1 in activeRules:
-        out.write(rule + "\n")
+
 
 out.close()
 os.remove("grammar_tmp.txt")

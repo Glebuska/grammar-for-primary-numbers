@@ -32,6 +32,21 @@ q = collections.deque()
 tmp = set()
 numOfStage1Commands = 4
 q.append(["A_1"])
+derivation = []
+
+
+def printStack(derivation_):
+    out = open("derivation.txt", "w")
+    last_gen_index = 0
+    for index, production in enumerate(derivation_):
+        if any(elem in production for elem in ["A_1", "A_2"]):
+            last_gen_index = index
+
+    for index, production in enumerate(derivation_):
+        if index > last_gen_index:
+            out.write(str(production).lstrip('[').rstrip(']') + "\n")
+
+
 while q:
     word = q.popleft()
     if tuple(word) in tmp:
@@ -58,14 +73,17 @@ while q:
                     q.append(newWord)
                 else:
                     q.appendleft(newWord)
+    # for i in word:
+    # print(i, end="")
+    # print("\n")
+    derivation.append(word)
     if is_terminal:
         if inputNumber == len(word):
-            print("YES")
+            print(f'YES, {inputNumber} is prime\nCheck [derivation.txt] for full stack')
+            printStack(derivation)
             exit(0)
         elif inputNumber < len(word):
-            print("NO")
+            print(f'NO, {inputNumber} is not prime.')
             exit(0)
-
-        # for i in word:
-        #     print(i, end="")
-        # print(" ", len(word))
+        else:
+            derivation = []
